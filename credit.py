@@ -39,13 +39,13 @@ else:
 					total_payment += monthly_payment
 				print(f'\nOverpayment = {total_payment - principal}')
 		elif repayment_type == 'annuity':
+			i = interest / (12 * 100)
 			if periods == None:
 				if principal < 0:
 					print('Incorrect parameters')
 				elif payment < 0:
 					print('Incorrect parameters')
 				else:
-					i = interest / (12 * 100)
 					count_months = math.ceil(math.log(payment / (payment - (i * principal)), 1 + i))
 					years = count_months // 12
 					months = count_months % 12
@@ -68,7 +68,6 @@ else:
 				elif principal < 0:
 					print('Incorrect parameters')
 				else:
-					i = interest / (12 * 100)
 					payment = math.ceil(principal * ((i * math.pow(i + 1, periods)) / (math.pow(i + 1, periods) - 1)))
 					print(f'Your annuity payment = {payment}!')
 					print(f'Overpayment = {math.ceil(periods * payment - principal)}')
@@ -78,7 +77,6 @@ else:
 				elif payment < 0:
 					print('Incorrect parameters')
 				else:
-					i = interest / (12 * 100)
 					principal = payment / ((i * math.pow(i + 1, periods)) / (math.pow(i + 1, periods) - 1))
 					print(f'Your credit principal = {math.floor(principal)}!')
 					print(f'Overpayment = {math.ceil(periods * payment - principal)}')
